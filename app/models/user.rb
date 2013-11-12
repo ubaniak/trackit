@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
   def self.subbordinates
       User.where("manager = ? AND department_id = ?", false, self.department_id)
   end
+
+  def is_admin?
+      self.admin
+  end
 end
