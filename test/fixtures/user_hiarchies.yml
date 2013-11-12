@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  employee: 1
+  reports_to: 1
+  creator: 1
+
+two:
+  employee: 1
+  reports_to: 1
+  creator: 1
