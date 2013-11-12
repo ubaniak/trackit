@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  task_id: 1
+  comment: MyString
+  created_by: 1
+
+two:
+  task_id: 1
+  comment: MyString
+  created_by: 1
