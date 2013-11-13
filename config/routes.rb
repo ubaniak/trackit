@@ -1,4 +1,8 @@
 Trackit::Application.routes.draw do
+    # Admin
+  get "admin_panal" => "admin#panal"
+
+
   devise_for :users
   root "pages#home"
   # The priority is based upon order of creation: first created -> highest priority.
