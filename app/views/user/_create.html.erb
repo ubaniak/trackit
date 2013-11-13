@@ -2,5 +2,7 @@
     Name: <%= text_field_tag :name %><br>
     Email: <%= text_field_tag :email %><br>
     Password: <%= text_field_tag :password %><br>
+    Department: <%= select_tag :department, options_from_collection_for_select(Department.all, "id", "name") %><br>
+    Manager: <%= check_box_tag :manager %><br>
     <%= submit_tag "Create" %>
 <% end %>
