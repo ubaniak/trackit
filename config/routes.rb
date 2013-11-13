@@ -1,7 +1,7 @@
 Trackit::Application.routes.draw do
     # Admin
   get "admin_panal" => "admin#panal"
-
+  get "manage_users" => "admin#users"
 
   devise_for :users
   root "pages#home"

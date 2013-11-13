@@ -1,2 +1,10 @@
-<h1>Admin#panal</h1>
-<p>Find me in app/views/admin/panal.html.erb</p>
+<div class="row-fluid">
+    <div class="span3">
+        Commands
+        <ul>
+            <li><%= link_to "Users", manage_users_path, :remote => true %></li>
+        </ul>
+    </div>
+    <div class="span9 yield">
+    </div>
+</div>
