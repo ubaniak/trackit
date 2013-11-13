@@ -2,6 +2,13 @@ Trackit::Application.routes.draw do
     # Admin
   get "admin_panal" => "admin#panal"
   get "manage_users" => "admin#users"
+  get "manage_departments" => "admin#departments"
+
+    # Users 
+  post "create_user" => "user#create"
+
+    # Departments 
+  post "create_department" => "departments#create"
 
   devise_for :users
   root "pages#home"

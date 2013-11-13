@@ -3,5 +3,10 @@ class AdminController < ApplicationController
   end
 
   def users
+      @users = User.all
+  end
+
+  def departments
+      @departments = Department.all
   end
 end

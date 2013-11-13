@@ -1,0 +1,6 @@
+<%= form_tag create_user_path, :remote => true, :class => "create_user" do %>
+    Name: <%= text_field_tag :name %><br>
+    Email: <%= text_field_tag :email %><br>
+    Password: <%= text_field_tag :password %><br>
+    <%= submit_tag "Create" %>
+<% end %>

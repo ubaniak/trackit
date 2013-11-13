@@ -3,6 +3,5 @@ $(".yield").html("<div class='top'></div><div class='bottom'></div>");
 
 $(".bottom").append("<div class='row_fluid'></div><div class='span6 bottom-left'></div><div class='span6 bottom-right'></div>");
 
-$(".top").html("<%= escape_javascript(render(partial: "user/create")) %>");
-$(".bottom-left").append("<%= escape_javascript(render(partial: "user/list")) %>");
-
+$(".top").html("<%= escape_javascript(render(partial: "departments/create")) %>");
+$(".bottom-left").append("<%= escape_javascript(render(partial: "departments/list")) %>");
