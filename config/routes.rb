@@ -4,6 +4,10 @@ Trackit::Application.routes.draw do
   get "manage_users" => "admin#users"
   get "manage_departments" => "admin#departments"
 
+    # Tasks
+  get "new_task" => "tasks#new"
+  post "create_task" => "tasks#create"
+
     # Users 
   post "create_user" => "user#create"
 
@@ -11,6 +15,7 @@ Trackit::Application.routes.draw do
   post "create_department" => "departments#create"
 
   devise_for :users
+
     # Pages 
   get "workspace" => "pages#workspace"
   root "pages#home"

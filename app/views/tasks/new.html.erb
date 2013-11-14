@@ -1,0 +1,25 @@
+<%= form_tag(create_task_path) do |f| %>
+
+  <div class="field">
+    <%= label_tag :title %><br>
+    <%= text_field_tag :title %>
+  </div>
+  <div class="field">
+    <%= label_tag :description %><br>
+    <%= text_area_tag :description %>
+  </div>
+
+  <div class="field">
+      Assign to
+    <%= label_tag :User %><br>
+    <%= select_tag :user_id, options_from_collection_for_select(User.all, "id", "name") %><br>
+    <br>
+    OR
+    <%= label_tag :department %><br>
+    <%= select_tag :department_id, options_from_collection_for_select(Department.all, "id", "name") %><br>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>
