@@ -23,4 +23,22 @@ class TasksController < ApplicationController
     def show
         @task = Task.find(params[:id])
     end
+
+    def assign_due_date
+        @task = Task.find(params[:id])
+    end
+
+    def cancel_due_date
+        @task = Task.find(params[:id])
+        puts @task
+    end
+
+    def set_due_date
+        datetime_string = "#{params[:due_date]} #{params[:due_time]}"
+        @task = Task.find(params[:id])
+        @task.due_date = DateTime.parse(datetime_string)
+        @task.save
+        redirect_to task_path(@task)
+    end
+
 end

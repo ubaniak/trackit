@@ -1,0 +1,9 @@
+<% if @task.due_date.nil? %>
+    <p class="alert"> 
+    Due date not assigned.
+    <br>
+    <%= link_to "Click here to assign a due date.", assign_due_date_path(@task), :remote => true %>
+    </p>
+<% else %>
+    <%= @task.due_date %>
+<% end %>
