@@ -7,6 +7,7 @@ Trackit::Application.routes.draw do
     # Tasks
   get "new_task" => "tasks#new"
   post "create_task" => "tasks#create"
+  get "tasks/:id/task_path" => "tasks#show", as: :task
 
     # Users 
   post "create_user" => "user#create"

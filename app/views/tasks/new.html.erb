@@ -12,11 +12,11 @@
   <div class="field">
       Assign to
     <%= label_tag :User %><br>
-    <%= select_tag :user_id, options_from_collection_for_select(User.all, "id", "name") %><br>
+    <%= select_tag :assigned_to, options_from_collection_for_select(User.all, "id", "name"), :include_blank => true, :default => nil %><br>
     <br>
     OR
     <%= label_tag :department %><br>
-    <%= select_tag :department_id, options_from_collection_for_select(Department.all, "id", "name") %><br>
+    <%= select_tag :department_id, options_from_collection_for_select(Department.all, "id", "name"), :include_blank => true, :default => nil %><br>
   </div>
 
   <div class="actions">

@@ -1,0 +1,40 @@
+<div class="row-fluid">
+    <h3><%= @task.title %></h3>
+    <br>
+    <div class="description">
+        <%= @task.description %>
+    </div>
+    <br>
+    <div class="due_date">
+        <%= @task.due_date %>
+    </div>
+
+    <div class="assigned_to">
+        Assigned To: <%= @task.assigned_name %>
+    </div>
+
+    <% if @task.reviewer_set? %>
+        <div class="reviewed_by">
+            Reviewer: <%= @task.reviewer_name %>
+        </div>
+    <% end %>
+
+    <% if @task.approver_set? %>
+        <div class="approved_by">
+            Approved By: <%= @task.approver_name %>
+        </div>
+    <% end %>
+
+    <div class="created_by">
+        Created By: <%= @task.creator.name %>
+    </div>
+
+    <div class="stats">
+        <%= @task.status.name %>
+    </div>
+    <div class="department">
+        <% if not @task.department.nil? %>
+            <%= @task.department.name %>
+        <% end %>
+    </div>
+</div>
