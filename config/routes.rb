@@ -11,6 +11,8 @@ Trackit::Application.routes.draw do
   post "create_department" => "departments#create"
 
   devise_for :users
+    # Pages 
+  get "workspace" => "pages#workspace"
   root "pages#home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
