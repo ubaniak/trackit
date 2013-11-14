@@ -1,1 +1,39 @@
-asdsd
+<br>
+<div class="row-fluid">
+    <div class="span3">
+        <h3>Open tasks</h3>
+        <% @open_tasks.each do |task| %>
+            <%= render task %>
+        <% end %>
+    </div>
+    <div class="span3">
+        <h3>For review</h3>
+        <% @for_review.each do |task| %>
+            <%= render task %>
+        <% end %>
+        <h3>To review</h3>
+        <% @to_review.each do |task| %>
+            <%= render task %>
+        <% end %>
+    </div>
+    <div class="span3">
+        <h3>For Approval</h3>
+        <% @for_approval.each do |task| %>
+            <%= render task %>
+        <% end %>
+        <h3>To Approval</h3>
+        <% @to_approve.each do |task| %>
+            <%= render task %>
+        <% end %>
+    </div>
+    <div class="span3">
+        <h3>Notifications</h3>
+        <% @notifications.each do |notification| %>
+            <%= notification.message %>
+            <br>
+            <%= link_to notification.task do %>
+                <%= notification.task.title %><br>
+            <% end %>
+        <% end %>
+    </div>
+</div>
