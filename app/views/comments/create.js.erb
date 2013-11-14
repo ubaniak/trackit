@@ -1,0 +1,4 @@
+$(".create_comment")[0].reset();
+
+$(".list-comments").html("");
+$(".list-comments").html("<%= escape_javascript( render( partial: "comments/list", locals: { comments: @task.comments } ) )%>");

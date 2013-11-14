@@ -15,6 +15,9 @@ Trackit::Application.routes.draw do
     # Departments 
   post "create_department" => "departments#create"
 
+    # Comments 
+  post "comments/:task_id/add_comment" => "comments#create", as: :add_comment
+
   devise_for :users
 
     # Pages 

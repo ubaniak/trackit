@@ -37,4 +37,15 @@
             <%= @task.department.name %>
         <% end %>
     </div>
+
+    <div class="comments">
+        <%= form_tag add_comment_path(:task_id => @task.id), :remote => true, :class => "create_comment" do %>
+            <%= text_area_tag :comment %> <br>
+            <%= submit_tag "Add Comment" %>
+        <% end %>
+        <div class="list-comments">
+            <%= render partial: "comments/list", locals: { comments: @task.comments } %>
+        </div>
+    </div>
+
 </div>
