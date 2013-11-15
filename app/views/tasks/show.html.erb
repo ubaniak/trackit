@@ -13,11 +13,9 @@
         Assigned To: <%= @task.assigned_name %>
     </div>
 
-    <% if @task.reviewer_set? %>
-        <div class="reviewed_by">
-            Reviewer: <%= @task.reviewer_name %>
-        </div>
-    <% end %>
+    <div class="reviewer">
+        <%= render "tasks/show_reviewer" %>
+    </div>
 
     <% if @task.approver_set? %>
         <div class="approved_by">

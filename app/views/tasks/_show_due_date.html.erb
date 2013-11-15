@@ -2,8 +2,9 @@
     <p class="alert"> 
     Due date not assigned.
     <br>
-    <%= link_to "Click here to assign a due date.", assign_due_date_path(@task), :remote => true %>
+    <%= link_to "Click here to set a due date.", set_due_date_path(@task), :remote => true %>
     </p>
 <% else %>
-    <%= @task.due_date %>
+    <%= @task.due_date.strftime("%Y %B %d, %I:%M %p") %>
+    <%= link_to "Change", set_due_date_path(@task), :remote => true %>
 <% end %>

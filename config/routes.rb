@@ -8,9 +8,14 @@ Trackit::Application.routes.draw do
   get "new_task" => "tasks#new"
   post "create_task" => "tasks#create"
   get "tasks/:id/task_path" => "tasks#show", as: :task
-  get "tasks/:id/assign_due_date" => "tasks#assign_due_date", as: :assign_due_date
-  post "tasks/:id/set_due_date" => "tasks#set_due_date", as: :set_due_date
+  get "tasks/:id/set_due_date" => "tasks#set_due_date", as: :set_due_date
+  post "tasks/:id/update_due_date" => "tasks#update_due_date", as: :update_due_date
   get "tasks/:id/cancel_due_date" => "tasks#cancel_due_date", as: :cancel_due_date
+
+  get "tasks/:id/set_reviewer" => "tasks#set_reviewer", as: :set_reviewer
+  post "tasks/:id/update_reviewer" => "tasks#update_reviewer", as: :update_reviewer
+  get "tasks/:id/cancel_reviewer" => "tasks#cancel_reviewer", as: :cancel_reviewer
+
 
     # Users 
   post "create_user" => "user#create"

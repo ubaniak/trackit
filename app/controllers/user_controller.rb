@@ -1,7 +1,7 @@
 class UserController < ApplicationController
 
     def create
-        @user = User.new(:name => params[:user], 
+        @user = User.new(:name => params[:name], 
                          :email => params[:email], 
                          :password => params[:password],
                          :department_id => params[:department],
