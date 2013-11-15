@@ -117,28 +117,52 @@ class Task < ActiveRecord::Base
     end
 
     # All tasks
-    def self.all_open_tasks
-        self.joins(:status).where("name LIKE ?", "%Open%")
+    def self.all_open_tasks(department_id)
+        if department_id.nil?
+            self.joins(:status).where("name LIKE ?", "%Open%")
+        else 
+            self.joins(:status).where("name LIKE ? AND department_id = ?", "%Open%", department_id)
+        end
     end
 
-    def self.all_closed_tasks
-        self.joins(:status).where("name LIKE ?", "%Close%")
+    def self.all_closed_tasks(department_id)
+        if department_id.nil?
+            self.joins(:status).where("name LIKE ?", "%Close%")
+        else 
+            self.joins(:status).where("name LIKE ? AND department_id = ?", "%Close%", department_id)
+        end
     end
 
-    def self.all_tasks_for_review
-        self.joins(:status).where("name LIKE ?", "%For Review%")
+    def self.all_tasks_for_review(department_id)
+        if department_id.nil?
+            self.joins(:status).where("name LIKE ?", "%For Review%")
+        else 
+            self.joins(:status).where("name LIKE ? AND department_id = ?", "%For Review%", department_id)
+        end
     end
 
-    def self.all_tasks_for_approval
-        self.joins(:status).where("name LIKE ?", "%For Approval%")
+    def self.all_tasks_for_approval(department_id)
+        if department_id.nil?
+            self.joins(:status).where("name LIKE ?", "%For Approval%")
+        else 
+            self.joins(:status).where("name LIKE ? AND department_id = ?", "%For Approval%", department_id)
+        end
     end
 
-    def self.all_late_tasks
-        self.where("due_date < ?", DateTime.now)
+    def self.all_late_tasks(department_id)
+        if department_id.nil?
+            self.where("due_date < ?", DateTime.now)
+        else 
+            self.where("due_date < ? AND department_id = ?", DateTime.now, department_id)
+        end
     end
 
-    def self.all_unassigned_tasks
-        self.where("assigned_to IS 'nil'")
+    def self.all_unassigned_tasks(department_id)
+        if department_id.nil?
+            self.where("assigned_to IS 'nil'")
+        else
+            self.where("assigned_to IS 'nil' AND department_id = ?", department_id)
+        end
     end
 
 

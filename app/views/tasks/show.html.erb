@@ -36,7 +36,7 @@
             <%= link_to "Send for review", send_for_review_path(@task) %>
         <% end %>
 
-        <% if @task.for_review? and @task.approver_set? and @task.current_reviewer(current_user) %>
+        <% if @task.for_review? and @task.reviewer_set? and @task.current_reviewer(current_user) %>
             <%= link_to "Re-open task", reopen_task_path(@task) %>
             <%= link_to "Send for approval", send_for_approval_path(@task) %>
         <% end %>

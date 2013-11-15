@@ -1,6 +1,10 @@
 class PagesController < ApplicationController
     before_filter :authenticate_user!, :only => [:workspace]
+
   def home
+#      department_id = params[:department_id] ? params[:department_id] : current_user.department_id
+
+ #     @all_unassigned_tasks = Task.all_unassigned_tasks(department_id)
   end
 
   def workspace
