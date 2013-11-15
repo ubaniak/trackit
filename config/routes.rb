@@ -16,6 +16,13 @@ Trackit::Application.routes.draw do
   post "tasks/:id/update_reviewer" => "tasks#update_reviewer", as: :update_reviewer
   get "tasks/:id/cancel_reviewer" => "tasks#cancel_reviewer", as: :cancel_reviewer
 
+  get "tasks/:id/set_approver" => "tasks#set_approver", as: :set_approver
+  post "tasks/:id/update_approver" => "tasks#update_approver", as: :update_approver
+  get "tasks/:id/cancel_approver" => "tasks#cancel_approver", as: :cancel_approver
+
+  get "tasks/:id/set_assigned" => "tasks#set_assigned", as: :set_assigned
+  post "tasks/:id/update_assigned" => "tasks#update_assigned", as: :update_assigned
+  get "tasks/:id/cancel_assigned" => "tasks#cancel_assigned", as: :cancel_assigned
 
     # Users 
   post "create_user" => "user#create"

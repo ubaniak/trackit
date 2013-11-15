@@ -9,19 +9,17 @@
         <%= render "tasks/show_due_date" %>
     </div>
 
-    <div class="assigned_to">
-        Assigned To: <%= @task.assigned_name %>
+    <div class="assigned">
+        <%= render "tasks/show_assigned" %>
     </div>
 
     <div class="reviewer">
         <%= render "tasks/show_reviewer" %>
     </div>
 
-    <% if @task.approver_set? %>
-        <div class="approved_by">
-            Approved By: <%= @task.approver_name %>
-        </div>
-    <% end %>
+    <div class="approver">
+        <%= render "tasks/show_approver" %>
+    </div>
 
     <div class="created_by">
         Created By: <%= @task.creator.name %>

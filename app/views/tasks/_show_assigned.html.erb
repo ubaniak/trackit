@@ -1,0 +1,10 @@
+<% if @task.reviewer.nil? %>
+    <p class="alert"> 
+    This task is not assigned to any one
+    <br>
+    <%= link_to "Click here to assign task.", set_assigned_path(@task), :remote => true %>
+    </p>
+<% else %>
+    Assigned to: <%= @task.assigned.name %>
+    <%= link_to "Change", set_assigned_path(@task), :remote => true %>
+<% end %>

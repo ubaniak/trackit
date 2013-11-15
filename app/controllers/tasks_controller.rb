@@ -24,6 +24,9 @@ class TasksController < ApplicationController
         @task = Task.find(params[:id])
     end
 
+    ############
+    # Due Date
+    ############
     def set_due_date
         @task = Task.find(params[:id])
     end
@@ -39,6 +42,10 @@ class TasksController < ApplicationController
         redirect_to task_path(@task)
     end
 
+    ############
+    # Reviewer
+    ############
+
     def update_reviewer
         @task = Task.find(params[:id])
         @task.reviewed_by = params[:reviewer]
@@ -51,6 +58,42 @@ class TasksController < ApplicationController
     end
 
     def cancel_reviewer
+        @task = Task.find(params[:id])
+    end
+
+    ############
+    # Approver
+    ############
+    def update_approver
+        @task = Task.find(params[:id])
+        @task.approved_by = params[:approver]
+        @task.save
+        redirect_to task_path(@task)
+    end
+
+    def set_approver
+        @task = Task.find(params[:id])
+    end
+
+    def cancel_approver
+        @task = Task.find(params[:id])
+    end
+
+    ############
+    # Assigned
+    ############
+    def update_assigned
+        @task = Task.find(params[:id])
+        @task.assigned_to = params[:assigned]
+        @task.save
+        redirect_to task_path(@task)
+    end
+
+    def set_assigned
+        @task = Task.find(params[:id])
+    end
+
+    def cancel_assigned
         @task = Task.find(params[:id])
     end
 end

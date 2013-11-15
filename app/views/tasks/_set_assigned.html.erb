@@ -1,0 +1,12 @@
+<%= form_tag update_assigned_path(@task) do %>
+    <div class="row-fluid" style="width: 500px;">
+        <div class="span12">
+            <%= label_tag :assigned %>
+            <%= select_tag :assigned, options_from_collection_for_select(User.all, "id", "name")  %>
+        </div>
+    </div>
+
+    <br>
+    <%= submit_tag "Set" %>
+    <%= link_to "Cancel", cancel_assigned_path(@task), :remote => true %>
+<% end %>

@@ -5,6 +5,6 @@
     <%= link_to "Click here to set a due date.", set_due_date_path(@task), :remote => true %>
     </p>
 <% else %>
-    <%= @task.due_date.strftime("%Y %B %d, %I:%M %p") %>
+    Due Date: <%= @task.due_date.strftime("%Y %B %d, %I:%M %p") %>
     <%= link_to "Change", set_due_date_path(@task), :remote => true %>
 <% end %>
