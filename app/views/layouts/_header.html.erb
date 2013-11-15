@@ -1,6 +1,13 @@
 <div class="row-fluid">
     <div class="span6">
         <% if user_signed_in? %>
+            <ul>
+                <li> <%= link_to "Home", root_path %> </li>
+                <li> <%= link_to "My workspace", workspace_path %> </li>
+                <% if current_user.is_admin? %>
+                    <li> <%= link_to "Admin Panal", admin_panal_path %> </li>
+                <% end %>
+            </ul>
         <% end %>
     </div>
     <div class="span6">

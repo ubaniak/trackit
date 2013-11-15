@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+    before_filter :authenticate_user!
+
     def create
         @comment = Comment.new(:comment => params[:comment], :created_by => current_user.id, :task_id => params[:task_id])
         @comment.save
