@@ -22,7 +22,7 @@ class Task < ActiveRecord::Base
     default_scope :order => "created_at DESC"
 
     def open_task
-        self.status = Status.open
+        self.update({:status => Status.open})
     end
 
     def open?
@@ -39,6 +39,10 @@ class Task < ActiveRecord::Base
 
     def closed?
         self.status == Status.close
+    end
+
+    def current_owner(user)
+        self.assigned == user
     end
 
     # Approval Stuff

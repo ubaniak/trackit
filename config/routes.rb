@@ -28,6 +28,11 @@ Trackit::Application.routes.draw do
   post "tasks/:id/update_department" => "tasks#update_department", as: :update_department
   get "tasks/:id/cancel_department" => "tasks#cancel_department", as: :cancel_department
 
+  get "tasks/:id/send_for_review" => "tasks#send_for_review", as: :send_for_review
+  get "tasks/:id/send_for_approval" => "tasks#send_for_approval", as: :send_for_approval
+  get "tasks/:id/reopen_task" => "tasks#reopen_task", as: :reopen_task
+  get "tasks/:id/close_task" => "tasks#close_task", as: :close_task
+
     # Users 
   post "create_user" => "user#create"
 

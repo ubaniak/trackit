@@ -5,6 +5,7 @@ class CreateTasks < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.datetime :due_date
+      
       t.integer :assigned_to
       t.integer :approved_by
       t.integer :reviewed_by

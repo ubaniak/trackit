@@ -24,6 +24,18 @@ class TasksController < ApplicationController
         @task = Task.find(params[:id])
     end
 
+    def reopen_task
+        @task = Task.find(params[:id])
+        @task.open_task
+        redirect_to workspace_path
+    end
+
+    def close_task
+        @task = Task.find(params[:id])
+        @task.close
+        redirect_to workspace_path
+    end
+
     ############
     # Due Date
     ############
@@ -48,8 +60,7 @@ class TasksController < ApplicationController
 
     def update_reviewer
         @task = Task.find(params[:id])
-        @task.reviewed_by = params[:reviewer]
-        @task.save
+        @task.set_reviewer(params[:reviewer])
         redirect_to task_path(@task)
     end
 
@@ -61,13 +72,18 @@ class TasksController < ApplicationController
         @task = Task.find(params[:id])
     end
 
+    def send_for_review
+        @task = Task.find(params[:id])
+        @task.send_for_review
+        redirect_to workspace_path
+    end
+
     ############
     # Approver
     ############
     def update_approver
         @task = Task.find(params[:id])
-        @task.approved_by = params[:approver]
-        @task.save
+        @task.set_approver(params[:approver])
         redirect_to task_path(@task)
     end
 
@@ -77,6 +93,12 @@ class TasksController < ApplicationController
 
     def cancel_approver
         @task = Task.find(params[:id])
+    end
+
+    def send_for_approval
+        @task = Task.find(params[:id])
+        @task.send_for_approval
+        redirect_to workspace_path
     end
 
     ############
@@ -114,4 +136,5 @@ class TasksController < ApplicationController
     def cancel_department
         @task = Task.find(params[:id])
     end
+
 end

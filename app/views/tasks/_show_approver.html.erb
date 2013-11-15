@@ -1,10 +1,12 @@
-<% if @task.approver.nil? %>
-    <p class="alert"> 
-    approver not assigned.
-    <br>
-    <%= link_to "Click here to set a approver.", set_approver_path(@task), :remote => true %>
-    </p>
-<% else %>
-    Approved By: <%= @task.approver.name %>
-    <%= link_to "Change", set_approver_path(@task), :remote => true %>
+<% if @task.current_reviewer(current_user) %>
+    <% if @task.approver.nil? %>
+        <p class="alert"> 
+        approver not assigned.
+        <br>
+        <%= link_to "Click here to set a approver.", set_approver_path(@task), :remote => true %>
+        </p>
+    <% else %>
+        Approved By: <%= @task.approver.name %>
+        <%= link_to "Change", set_approver_path(@task), :remote => true %>
+    <% end %>
 <% end %>

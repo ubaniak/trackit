@@ -1,10 +1,12 @@
-<% if @task.reviewer.nil? %>
-    <p class="alert"> 
-    reviewer not assigned.
-    <br>
-    <%= link_to "Click here to set a reviewer.", set_reviewer_path(@task), :remote => true %>
-    </p>
-<% else %>
-    Reviewed By: <%= @task.reviewer.name %>
-    <%= link_to "Change", set_reviewer_path(@task), :remote => true %>
+<% if @task.current_owner(current_user) %>
+    <% if @task.reviewer.nil? %>
+        <p class="alert"> 
+        reviewer not assigned.
+        <br>
+        <%= link_to "Click here to set a reviewer.", set_reviewer_path(@task), :remote => true %>
+        </p>
+    <% else %>
+        Reviewed By: <%= @task.reviewer.name %>
+        <%= link_to "Change", set_reviewer_path(@task), :remote => true %>
+    <% end %>
 <% end %>
