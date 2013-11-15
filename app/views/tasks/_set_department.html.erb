@@ -1,0 +1,12 @@
+<%= form_tag update_department_path(@task) do %>
+    <div class="row-fluid" style="width: 500px;">
+        <div class="span12">
+            <%= label_tag :department %>
+            <%= select_tag :department, options_from_collection_for_select(Department.all, "id", "name")  %>
+        </div>
+    </div>
+
+    <br>
+    <%= submit_tag "Set" %>
+    <%= link_to "Cancel", cancel_department_path(@task), :remote => true %>
+<% end %>

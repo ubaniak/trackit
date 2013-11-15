@@ -1,0 +1,10 @@
+<% if @task.department.nil? %>
+    <p class="alert"> 
+    department not set.
+    <br>
+    <%= link_to "Click here to set a department.", set_department_path(@task), :remote => true %>
+    </p>
+<% else %>
+    Department: <%= @task.department.name %>
+    <%= link_to "Change", set_department_path(@task), :remote => true %>
+<% end %>

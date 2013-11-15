@@ -96,4 +96,22 @@ class TasksController < ApplicationController
     def cancel_assigned
         @task = Task.find(params[:id])
     end
+
+    ############
+    # Department
+    ############
+    def update_department
+        @task = Task.find(params[:id])
+        @task.department_id = params[:department]
+        @task.save
+        redirect_to task_path(@task)
+    end
+
+    def set_department
+        @task = Task.find(params[:id])
+    end
+
+    def cancel_department
+        @task = Task.find(params[:id])
+    end
 end

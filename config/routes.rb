@@ -24,6 +24,10 @@ Trackit::Application.routes.draw do
   post "tasks/:id/update_assigned" => "tasks#update_assigned", as: :update_assigned
   get "tasks/:id/cancel_assigned" => "tasks#cancel_assigned", as: :cancel_assigned
 
+  get "tasks/:id/set_department" => "tasks#set_department", as: :set_department
+  post "tasks/:id/update_department" => "tasks#update_department", as: :update_department
+  get "tasks/:id/cancel_department" => "tasks#cancel_department", as: :cancel_department
+
     # Users 
   post "create_user" => "user#create"
 
