@@ -6,5 +6,7 @@
     </p>
 <% else %>
     Assigned to: <%= @task.assigned.name %>
-    <%= link_to "Change", set_assigned_path(@task), :remote => true %>
+    <% if not @task.closed? %>
+        <%= link_to "Change", set_assigned_path(@task), :remote => true %>
+    <% end %>
 <% end %>

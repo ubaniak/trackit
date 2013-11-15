@@ -7,6 +7,8 @@
         </p>
     <% else %>
         Reviewed By: <%= @task.reviewer.name %>
-        <%= link_to "Change", set_reviewer_path(@task), :remote => true %>
+        <% if not @task.closed? %>
+            <%= link_to "Change", set_reviewer_path(@task), :remote => true %>
+        <% end %>
     <% end %>
 <% end %>

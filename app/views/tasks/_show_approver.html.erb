@@ -7,6 +7,8 @@
         </p>
     <% else %>
         Approved By: <%= @task.approver.name %>
-        <%= link_to "Change", set_approver_path(@task), :remote => true %>
+        <% if not @task.closed? %>
+            <%= link_to "Change", set_approver_path(@task), :remote => true %>
+        <% end %>
     <% end %>
 <% end %>

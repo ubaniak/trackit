@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :notifications
+
   def self.managers
       User.where("manager = ? AND department_id = ?", true, self.department_id)
   end

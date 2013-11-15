@@ -43,7 +43,7 @@
 
         <% if @task.for_approval? and @task.current_approver(current_user) %>
             <%= link_to "Re-open task", reopen_task_path(@task) %>
-            <%= link_to "Send for approval", send_for_approval_path(@task) %>
+            <%= link_to "Send for review", send_for_review_path(@task) %>
             <%= link_to "Close Task.", close_task_path(@task) %>
         <% end %>
     </div>

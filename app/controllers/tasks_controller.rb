@@ -17,6 +17,10 @@ class TasksController < ApplicationController
             @task.department = @task.assigned.department
         end
         @task.save
+        Notification.create_task(@task)
+        if @task.assigned?
+            Notification.assign_task(@task)
+        end
         redirect_to workspace_path
     end
 
@@ -27,12 +31,14 @@ class TasksController < ApplicationController
     def reopen_task
         @task = Task.find(params[:id])
         @task.open_task
+        Notification.reopen_task(@task, current_user)
         redirect_to workspace_path
     end
 
     def close_task
         @task = Task.find(params[:id])
         @task.close
+        Notification.close_task(@task, current_user)
         redirect_to workspace_path
     end
 
@@ -49,8 +55,10 @@ class TasksController < ApplicationController
 
     def update_due_date
         @task = Task.find(params[:id])
+        old_date = @task.due_date
         @task.due_date = DateTime.parse("#{params[:due_date]} #{params[:due_time]}")
         @task.save
+        Notification.change_due_date(@task, old_date)
         redirect_to task_path(@task)
     end
 
@@ -61,6 +69,7 @@ class TasksController < ApplicationController
     def update_reviewer
         @task = Task.find(params[:id])
         @task.set_reviewer(params[:reviewer])
+        Notification.set_reviewer(@task)
         redirect_to task_path(@task)
     end
 
@@ -75,6 +84,7 @@ class TasksController < ApplicationController
     def send_for_review
         @task = Task.find(params[:id])
         @task.send_for_review
+        Notification.send_for_review(@task)
         redirect_to workspace_path
     end
 
@@ -84,6 +94,7 @@ class TasksController < ApplicationController
     def update_approver
         @task = Task.find(params[:id])
         @task.set_approver(params[:approver])
+        Notification.set_approver(@task)
         redirect_to task_path(@task)
     end
 
@@ -98,6 +109,7 @@ class TasksController < ApplicationController
     def send_for_approval
         @task = Task.find(params[:id])
         @task.send_for_approval
+        Notification.send_for_approval(@task)
         redirect_to workspace_path
     end
 
@@ -108,6 +120,7 @@ class TasksController < ApplicationController
         @task = Task.find(params[:id])
         @task.assigned_to = params[:assigned]
         @task.save
+        Notification.assign_task(@task)
         redirect_to task_path(@task)
     end
 
@@ -126,6 +139,7 @@ class TasksController < ApplicationController
         @task = Task.find(params[:id])
         @task.department_id = params[:department]
         @task.save
+        Notification.set_department(@task, current_user)
         redirect_to task_path(@task)
     end
 

@@ -1,6 +1,6 @@
 class Task < ActiveRecord::Base
     has_many :comments
-    #has_many :notifications
+    has_many :notifications
     belongs_to :department
     belongs_to :status
     belongs_to :creator,
@@ -43,6 +43,10 @@ class Task < ActiveRecord::Base
 
     def current_owner(user)
         self.assigned == user
+    end
+
+    def assigned?
+        not self.assigned.nil?
     end
 
     # Approval Stuff

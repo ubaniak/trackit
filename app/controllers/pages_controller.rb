@@ -10,6 +10,6 @@ class PagesController < ApplicationController
       @to_review    = Task.all_my_tasks_to_review(current_user.id)
       @to_approve   = Task.all_my_tasks_to_approve(current_user.id)
 
-      @notifications =[]
+      @notifications = Notification.my_notifications(current_user.id)
   end
 end
